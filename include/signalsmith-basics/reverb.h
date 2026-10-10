@@ -126,6 +126,7 @@ struct ReverbSTFX : public BaseEffect {
 		delay1.reset();
 		delay2.reset();
 		delay3.reset();
+		delay4.reset();
 		delayFeedback.reset();
 		delayEarly.reset();
 		
@@ -304,7 +305,7 @@ private:
 	struct MultiDelay {
 		signalsmith::delay::MultiBuffer<Sample> buffer;
 		double delayScale = 1;
-		std::array<int, 8> delayOffsets, delayOffsetsPrev;
+		std::array<int, 8> delayOffsets{}, delayOffsetsPrev{};
 		
 		void configure(double maxRangeSamples, double scale) {
 			delayScale = scale;
